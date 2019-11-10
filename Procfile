@@ -1,1 +1,1 @@
-web: gunicorn efsapp.wsgi --log-file -
+web: gunicorn efsvue.wsgi --log-file -
