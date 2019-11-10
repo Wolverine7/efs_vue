@@ -28,6 +28,9 @@ class Customer(models.Model):
     def __str__(self):
         return str(self.cust_number)
 
+    def __unicode__(self):
+        return '%d' % (self.name)
+
 
 class Investment(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='investments')

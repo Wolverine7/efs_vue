@@ -51,7 +51,7 @@
       >
 
         <template slot="items" slot-scope="props" >
-          <td>{{ props.item.customer }}</td>
+          <td>{{ props.item.customer_name }}</td>
           <td nowrap="true">{{ props.item.category }}</td>
           <td nowrap="true">{{ props.item.description }}</td>
           <td nowrap="true">{{ props.item.acquired_value }}</td>
@@ -126,6 +126,7 @@
             && JSON.parse(localStorage.getItem("isAuthenticates")) === true) {
             this.validUserName = JSON.parse(localStorage.getItem("log_user"));
           }
+          console.log(this.investments);
         }).catch(error => {
           if (error.response.status === 401) {
             localStorage.removeItem('isAuthenticates');
