@@ -59,7 +59,7 @@ def investment_list(request):
     permission_classes = (IsAuthenticatedOrReadOnly)
     if request.method == 'GET':
         investment = Investment.objects.all()
-        serializer = InvestmentSerializer(investment, context={'request': request},many=True)
+        serializer = InvestmentGetSerializer(investment, context={'request': request},many=True)
         return Response({'data': serializer.data})
 
     elif request.method == 'POST':
@@ -82,7 +82,7 @@ def getInvestment(request, pk):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
-        serializer = InvestmentSerializer(investment,context={'request': request})
+        serializer = InvestmentGetSerializer(investment,context={'request': request})
         return Response(serializer.data)
 
     elif request.method == 'PUT':
